@@ -1,0 +1,248 @@
+/* style.css : design calme en gris et rose */
+
+:root {
+    --fond: #f5f3f4;
+    --carte: #ffffff;
+    --texte: #4b4649;
+    --gris: #8b8589;
+    --gris-clair: #e7e2e4;
+    --rose: #e9b6c2;
+    --rose-fonce: #d893a5;
+    --rose-pale: #fbeef1;
+    --vert: #6f9c84;
+    --vert-pale: #eaf3ed;
+    --rouge: #c27682;
+    --rouge-pale: #fbecee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.2rem;
+    color: #3f3b3d;
+}
+
+a { color: var(--rose-fonce); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.conteneur {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+main.conteneur {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* ----- En-tête et menu ----- */
+.entete {
+    background: var(--rose);
+    border-bottom: 1px solid #dba3b1;
+}
+
+.entete-contenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #4b3a3f;
+}
+.logo:hover { text-decoration: none; }
+
+.menu { display: flex; align-items: center; gap: 1.1rem; }
+.menu a { color: #4b3a3f; font-size: .95rem; }
+.menu a:hover { text-decoration: underline; }
+.utilisateur {
+    background: rgba(255, 255, 255, .55);
+    color: #5d4a50;
+    padding: .15rem .7rem;
+    border-radius: 999px;
+    font-size: .85rem;
+}
+
+/* ----- Cartes ----- */
+.carte {
+    background: var(--carte);
+    border: 1px solid var(--gris-clair);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(120, 100, 108, .06);
+}
+.carte-etroite { max-width: 460px; margin: 1rem auto; }
+.carte-tableau { padding: .5rem; overflow-x: auto; }
+
+/* ----- Formulaires ----- */
+label {
+    display: block;
+    margin: 1rem 0 .3rem;
+    font-size: .9rem;
+    color: var(--gris);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: .6rem .75rem;
+    border: 1px solid var(--gris-clair);
+    border-radius: 8px;
+    background: #fdfcfc;
+    color: var(--texte);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--rose-fonce);
+    box-shadow: 0 0 0 3px var(--rose-pale);
+}
+
+.bouton {
+    display: inline-block;
+    margin-top: 1.4rem;
+    padding: .6rem 1.3rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--rose-fonce);
+    color: #fff;
+    font-size: .95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .15s;
+}
+.bouton:hover { background: #c7798e; text-decoration: none; }
+.bouton-gris { background: #b9b3b6; }
+.bouton-gris:hover { background: #a29c9f; }
+
+.boutons { display: flex; gap: .7rem; }
+.aide { margin: 1.2rem 0 0; font-size: .8rem; color: var(--gris); text-align: center; }
+
+/* ----- Messages ----- */
+.message {
+    padding: .75rem 1rem;
+    border-radius: 8px;
+    margin: 0 0 1.2rem;
+    font-size: .95rem;
+}
+.message ul { margin: 0; padding-left: 1.2rem; }
+.succes { background: var(--vert-pale); color: #4c7a62; border: 1px solid #cfe3d6; }
+.erreur { background: var(--rouge-pale); color: #a4535f; border: 1px solid #f0cfd4; }
+
+/* ----- Filtres et statistiques ----- */
+.filtres {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.filtres > div { flex: 1; min-width: 160px; }
+.filtres label { margin-top: 0; }
+.filtres .bouton { margin-top: 0; }
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+.stat {
+    background: var(--rose-pale);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    text-align: center;
+}
+.stat-valeur { display: block; font-size: 1.4rem; font-weight: 600; color: #6a4f57; }
+.stat-titre  { font-size: .8rem; color: var(--gris); }
+
+/* ----- Tableau ----- */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .7rem .8rem; text-align: left; }
+thead th {
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--gris);
+    border-bottom: 1px solid var(--gris-clair);
+}
+tbody tr { border-bottom: 1px solid #f0ecee; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr.ligne:hover { background: #faf7f8; }
+.vide { text-align: center; color: var(--gris); padding: 2rem; }
+
+.badge {
+    background: #eeebec;
+    color: #6f696c;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    font-size: .8rem;
+}
+
+.note-ok { color: var(--vert); font-weight: 600; }
+.note-ko { color: var(--rouge); font-weight: 600; }
+
+.actions a { margin-right: .8rem; font-size: .9rem; }
+.actions a.suppr { color: var(--gris); }
+.actions a.suppr:hover { color: var(--rouge); }
+
+/* ----- Photos rondes ----- */
+.photo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+}
+.photo-vide {
+    background: var(--rose-pale);
+    color: var(--rose-fonce);
+    text-align: center;
+    line-height: 42px;
+    font-weight: 600;
+}
+.photo-grande { width: 80px; height: 80px; display: block; margin-bottom: .6rem; }
+
+/* ----- Pied de page ----- */
+.pied {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .85rem;
+    color: var(--gris);
+    border-top: 1px solid var(--gris-clair);
+}
+.pied p { margin: 0; }
+
+@media (max-width: 600px) {
+    .stats { grid-template-columns: 1fr; }
+    th, td { padding: .6rem .4rem; }
+}
